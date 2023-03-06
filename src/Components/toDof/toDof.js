@@ -12,11 +12,11 @@ const ToDoF = () => {
     };
 
     const addTaskFunc = () => {
-        setTask(...task, ts)
+        setTask([...task, ts])
     }
 
     const deleteTaskFunc = (index) => {
-        task.splice(index)
+        task.splice(index - 1)
         console.log(task);
     }
 
@@ -45,24 +45,24 @@ const ToDoF = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {(Array.isArray(task))?
-                        (task.map((tasks, index) => {
-                            return <>
-                                {console.log(index)}
-                                {console.log(ts)}
-                                {console.log(task)}
-                                <tr key={index++}>
-                                    <td>{index + 1}</td>
-                                    <td>{tasks}</td>
-                                    <td>
-                                        <div class="btn-group mx-auto" role="group" aria-label="Basic mixed styles example">
-                                            <button type="button" className="btn btn-success">Complete</button>
-                                            <button type="button" className="btn btn-danger" onClick={(i) => deleteTaskFunc(i = index)}>Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </>
-                        })):""}
+                        {(Array.isArray(task)) ?
+                            (task.map((tasks, index) => {
+                                return <>
+                                    {console.log(index)}
+                                    {console.log(ts)}
+                                    {console.log(task)}
+                                    <tr key={index++}>
+                                        <td>{index + 1}</td>
+                                        <td>{tasks}</td>
+                                        <td>
+                                            <div class="btn-group mx-auto" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" className="btn btn-success">Complete</button>
+                                                <button type="button" className="btn btn-danger" onClick={(i) => deleteTaskFunc(i = index)}>Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </>
+                            })) : ""}
                     </tbody>
                 </table>
             </div>
