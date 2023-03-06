@@ -16,7 +16,8 @@ const ToDoF = () => {
     }
 
     const deleteTaskFunc = (index) => {
-        task.splice(index - 1)
+        task.splice(index, 1)
+        setTask([...task])
         console.log(task);
     }
 
@@ -51,7 +52,7 @@ const ToDoF = () => {
                                     {console.log(index)}
                                     {console.log(ts)}
                                     {console.log(task)}
-                                    <tr key={index++}>
+                                    <tr key={index}>
                                         <td>{index + 1}</td>
                                         <td>{tasks}</td>
                                         <td>
